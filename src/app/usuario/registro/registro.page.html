@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>agregarUsuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Se debe conecatar con un FormGroup -->
+
+  <form [formGroup]="formulario" novalidate (ngSubmit)="guardarCliente()" >
+    <ion-item>
+      <ion-label position="floating">firstName</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('nombre').errors.required && fueTocado('firstName') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('firstName').errors.maxlength && fueTocado('firstName') "
+      >
+        Los caracteres maximos son 10
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('firstName').invalid  && campo('firstName').errors && campo('firstName').errors.minlength && fueTocado('firstName') "
+      >
+        Los caracteres maximos son 3
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">lastName</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.required && fueTocado('lastName') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.maxlength && fueTocado('lastName') "
+      >
+        Los caracteres maximos son 10
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('lastName').invalid  && campo('lastName').errors && campo('lastName').errors.minlength && fueTocado('lastName') "
+      >
+        Los caracteres maximos son 3
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="text" formControlName="contraseña"></ion-input>
+      <ion-note
+      slot="error"
+        *ngIf="campo('contraseña').invalid  && campo('contraseña').errors && campo('contraseña').errors.required && fueTocado('contraseña') "
+      >
+        Este campo es requerido
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('contraseña').invalid  && campo('contraseña').errors && campo('contraseña').errors.maxlength && fueTocado('contraseña') "
+      >
+        Los caracteres maximos son 10
+      </ion-note>
+      <ion-note
+      slot="error"
+        *ngIf="campo('contraseña').invalid  && campo('contraseña').errors && campo('contraseña').errors.minlength && fueTocado('contraseña') "
+      >
+        Los caracteres maximos son 3
+      </ion-note>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-button
+        [disabled]="formulario2.invalid"
+
+      role="submit" type="submit" >
+        Guardar
+      </ion-button>
+    </ion-item>
+  </form>
+</ion-content>
